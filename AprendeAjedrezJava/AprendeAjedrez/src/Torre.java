@@ -1,0 +1,31 @@
+
+import java.util.ArrayList;
+
+public class Torre {
+   public static ArrayList<String> obtenerMovimientosTorre(String posicionTorre) {
+      ArrayList<String> movimientos = new ArrayList<String>();
+
+      char columnaInicial = posicionTorre.charAt(0);
+      char filaInicial = posicionTorre.charAt(1);
+
+      int[][] direcciones = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+      for (int[] direccion : direcciones) {
+         char columnaActual = columnaInicial;
+         char filaActual = filaInicial;
+
+         while (true) {
+            columnaActual += direccion[0];
+            filaActual += direccion[1];
+
+            if (columnaActual >= 'a' && columnaActual <= 'h' && filaActual >= '1' && filaActual <= '8') {
+               movimientos.add("" + columnaActual + filaActual);
+            } else {
+               break;
+            }
+         }
+      }
+
+      return movimientos;
+   }
+}
